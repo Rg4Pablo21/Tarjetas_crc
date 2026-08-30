@@ -1,0 +1,495 @@
+/* index.css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f0f4f8;
+    font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 1.5rem;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Controles */
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.pdf-btn {
+    background: #1a4a6a;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(26, 74, 106, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pdf-btn:hover {
+    background: #0d3a5a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(26, 74, 106, 0.3);
+}
+
+.pdf-btn:active {
+    transform: translateY(0);
+}
+
+.pdf-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Cards container */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Card individual */
+.card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 20, 40, 0.08);
+    border: 1px solid #e9edf4;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: 0 12px 32px rgba(0, 20, 40, 0.12);
+}
+
+/* Card header */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem 1.8rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef3f9 100%);
+    border-bottom: 2px solid #d0d9e6;
+    gap: 1rem;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+}
+
+.class-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0b2b4a;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.meta-info {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+}
+
+.superclass, .subclasses {
+    color: #4f6f8f;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.2rem 1rem;
+    border-radius: 30px;
+    border: 1px solid #d8e0ea;
+    display: inline-block;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.delete-card-btn {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    transition: all 0.2s;
+    opacity: 0.6;
+    color: #c0392b;
+}
+
+.delete-card-btn:hover {
+    background: #fee;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Card body */
+.card-body {
+    padding: 1.5rem 1.8rem;
+}
+
+.fields-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+/* Campo individual (fila vertical) */
+.field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr auto;
+    gap: 0.8rem;
+    align-items: start;
+    padding: 0.8rem;
+    background: #fcfdff;
+    border-radius: 12px;
+    border: 1px solid #e9edf4;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.field-row:hover {
+    background: #f8faff;
+    border-color: #d0d9e6;
+}
+
+.field-row label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6b8aa8;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.field-row .field-content {
+    width: 100%;
+    min-height: 40px;
+    padding: 0.5rem 0.6rem;
+    border: 2px dashed transparent;
+    border-radius: 8px;
+    background: white;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+    cursor: text;
+    color: #1a3a5a;
+}
+
+.field-row .field-content:empty::before {
+    content: "📝 Escribe aquí";
+    color: #aac0d4;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+.field-row .field-content:focus {
+    outline: none;
+    border-color: #3498db;
+    background: #f0f8ff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.field-row .field-content[contenteditable="true"] {
+    border-color: #3498db;
+    background: #f0f8ff;
+}
+
+.field-label {
+    font-weight: 600;
+    color: #1a4a6a;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+/* Botón eliminar campo */
+.delete-field-btn {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    opacity: 0.4;
+    align-self: center;
+    margin-top: 1.5rem;
+}
+
+.delete-field-btn:hover {
+    background: #fee;
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Botones de acción */
+.add-field-btn {
+    background: #eef3f9;
+    border: 2px dashed #c8d4e2;
+    border-radius: 12px;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1a4a6a;
+    cursor: pointer;
+    transition: all 0.15s;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.add-field-btn:hover {
+    background: #dce6f2;
+    border-color: #a0b8d0;
+    transform: scale(1.01);
+}
+
+.add-field-btn:active {
+    background: #c9d6e6;
+    transform: scale(0.98);
+}
+
+/* Añadir nueva tarjeta */
+.add-card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.add-card-btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-card-btn:hover {
+    background: #2ecc71;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+.add-card-btn:active {
+    transform: translateY(0);
+}
+
+/* ========== RESPONSIVE ========== */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .card-header {
+        padding: 1.2rem 1.2rem;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .card-body {
+        padding: 1.2rem;
+    }
+    
+    .class-name {
+        font-size: 1.5rem;
+    }
+    
+    .field-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.6rem;
+        padding: 0.6rem;
+    }
+    
+    .field-row .delete-field-btn {
+        grid-column: 1 / -1;
+        justify-self: center;
+        margin-top: 0.3rem;
+    }
+    
+    .meta-info {
+        gap: 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .controls {
+        justify-content: center;
+    }
+    
+    .pdf-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    body {
+        padding: 0.8rem;
+    }
+    
+    .card-header {
+        padding: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .class-name {
+        font-size: 1.3rem;
+    }
+    
+    .field-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 8px;
+    }
+    
+    .field-row .field-content {
+        min-height: 35px;
+        font-size: 0.85rem;
+        padding: 0.4rem 0.5rem;
+    }
+    
+    .field-row label {
+        font-size: 0.65rem;
+    }
+    
+    .field-row .delete-field-btn {
+        margin-top: 0;
+    }
+    
+    .meta-info {
+        flex-direction: column;
+        gap: 0.4rem;
+        font-size: 0.75rem;
+    }
+    
+    .superclass, .subclasses {
+        display: inline-block;
+        width: fit-content;
+    }
+    
+    .add-field-btn {
+        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    .add-card-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .pdf-btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+/* ========== ESTILOS PARA PDF ========== */
+@media print {
+    .controls, .add-field-btn, .add-card-container, .delete-card-btn, .delete-field-btn, .card-actions {
+        display: none !important;
+    }
+    
+    .card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .card-header {
+        background: #f5f5f5 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    .field-row {
+        border: 1px solid #ddd !important;
+        background: white !important;
+    }
+    
+    .field-row .field-content {
+        border: 1px solid #eee !important;
+        background: white !important;
+    }
+    
+    .field-row .field-content:empty::before {
+        content: "";
+    }
+    
+    body {
+        background: white !important;
+        padding: 0.3in !important;
+    }
+    
+    .container {
+        max-width: 100% !important;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-new {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.field-row-new {
+    animation: fadeIn 0.2s ease-out;
+}

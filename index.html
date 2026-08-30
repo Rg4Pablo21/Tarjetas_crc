@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas CRC Verticales</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Controles principales -->
+        <div class="controls">
+            <button id="downloadPdf" class="pdf-btn">📄 Descargar PDF</button>
+        </div>
+
+        <div class="cards-container" id="app">
+            <!-- Tarjeta 1: Departamento -->
+            <div class="card" id="card-departamento">
+                <div class="card-header">
+                    <div class="header-left">
+                        <h2 class="class-name">Departamento</h2>
+                        <div class="meta-info">
+                            <span class="superclass">Superclases: —</span>
+                            <span class="subclasses">Subclases: —</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="delete-card-btn" title="Eliminar tarjeta">🗑️</button>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="fields-container" id="fields-departamento">
+                        <!-- Los campos se añaden dinámicamente -->
+                    </div>
+                    <button class="add-field-btn" data-target="departamento">+ Añadir campo</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Curso -->
+            <div class="card" id="card-curso">
+                <div class="card-header">
+                    <div class="header-left">
+                        <h2 class="class-name">Curso</h2>
+                        <div class="meta-info">
+                            <span class="superclass">Superclases: —</span>
+                            <span class="subclasses">Subclases: —</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="delete-card-btn" title="Eliminar tarjeta">🗑️</button>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="fields-container" id="fields-curso">
+                        <!-- Los campos se añaden dinámicamente -->
+                    </div>
+                    <button class="add-field-btn" data-target="curso">+ Añadir campo</button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Libro de texto -->
+            <div class="card" id="card-libro">
+                <div class="card-header">
+                    <div class="header-left">
+                        <h2 class="class-name">Libro de texto</h2>
+                        <div class="meta-info">
+                            <span class="superclass">Superclases: —</span>
+                            <span class="subclasses">Subclases: —</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="delete-card-btn" title="Eliminar tarjeta">🗑️</button>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="fields-container" id="fields-libro">
+                        <!-- Los campos se añaden dinámicamente -->
+                    </div>
+                    <button class="add-field-btn" data-target="libro">+ Añadir campo</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón para añadir nueva tarjeta -->
+        <div class="add-card-container">
+            <button id="addCardBtn" class="add-card-btn">➕ Añadir nueva tarjeta</button>
+        </div>
+    </div>
+
+    <!-- Incluir jsPDF y html2canvas desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
