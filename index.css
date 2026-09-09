@@ -21,17 +21,45 @@ body {
 /* Controles */
 .controls {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 2rem;
     gap: 1rem;
     flex-wrap: wrap;
+}
+
+.controls-left {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.load-btn, .export-btn {
+    background: #eef3f9;
+    color: #1a4a6a;
+    border: 1px solid #c8d4e2;
+    padding: 0.7rem 1.5rem;
+    border-radius: 40px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.load-btn:hover, .export-btn:hover {
+    background: #dce6f2;
+    border-color: #a0b8d0;
+    transform: translateY(-2px);
 }
 
 .pdf-btn {
     background: #1a4a6a;
     color: white;
     border: none;
-    padding: 0.8rem 2rem;
+    padding: 0.7rem 2rem;
     border-radius: 40px;
     font-size: 1rem;
     font-weight: 600;
@@ -114,13 +142,57 @@ body {
     font-size: 0.9rem;
 }
 
-.superclass, .subclasses {
-    color: #4f6f8f;
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     background: rgba(255, 255, 255, 0.7);
     padding: 0.2rem 1rem;
     border-radius: 30px;
     border: 1px solid #d8e0ea;
-    display: inline-block;
+}
+
+.meta-label {
+    font-weight: 600;
+    color: #1a4a6a;
+}
+
+.meta-value {
+    color: #4f6f8f;
+    min-width: 20px;
+    cursor: text;
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.meta-value:hover {
+    background: rgba(52, 152, 219, 0.05);
+}
+
+.meta-value:focus {
+    outline: 2px solid #3498db;
+    background: #f0f8ff;
+}
+
+.meta-value[contenteditable="true"] {
+    outline: 2px solid #3498db;
+    background: #f0f8ff;
+}
+
+.meta-value:empty::before {
+    content: "Escribe aquí";
+    color: #aac0d4;
+    font-style: italic;
+}
+
+.meta-value ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.meta-value li {
+    list-style-type: disc;
 }
 
 .card-actions {
@@ -204,10 +276,7 @@ body {
 }
 
 .field-row .field-content:empty::before {
-    content: "📝 Escribe aquí";
-    color: #aac0d4;
-    font-style: italic;
-    font-size: 0.85rem;
+    content: "";
 }
 
 .field-row .field-content:focus {
@@ -320,6 +389,20 @@ body {
     body {
         padding: 1rem;
     }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .controls-left {
+        justify-content: center;
+    }
+
+    .load-btn, .export-btn, .pdf-btn {
+        justify-content: center;
+        flex: 1;
+    }
     
     .card-header {
         padding: 1.2rem 1.2rem;
@@ -351,21 +434,22 @@ body {
         gap: 0.8rem;
         font-size: 0.8rem;
     }
-    
-    .controls {
-        justify-content: center;
-    }
-    
-    .pdf-btn {
-        width: 100%;
-        justify-content: center;
-    }
 }
 
 /* Móviles */
 @media (max-width: 480px) {
     body {
         padding: 0.8rem;
+    }
+
+    .controls-left {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .load-btn, .export-btn, .pdf-btn {
+        width: 100%;
+        justify-content: center;
     }
     
     .card-header {
@@ -407,9 +491,10 @@ body {
         font-size: 0.75rem;
     }
     
-    .superclass, .subclasses {
-        display: inline-block;
-        width: fit-content;
+    .meta-item {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0.2rem 0.8rem;
     }
     
     .add-field-btn {
